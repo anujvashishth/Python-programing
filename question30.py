@@ -86,19 +86,18 @@
 #     print("number is not palindrome")
 
 # 11.Write a Python program to find the sum of all elements in a list. 
-X = [0]
-i = 0 
-C = 0
-a = 10
-n = int(input("Enter the size: "))
-while i<n:
-    X.append(int(input("Enter the list number: ")))
-    print(X[i])
-    if(X[i]==a):
-        C = C+1
-    i = i+1
-print(X)
-print("counter =", C)
+n = int(input("Enter number of elements: "))
+lst = []
+sum = 0
+
+for i in range(n):
+    x = int(input("Enter element: "))
+    lst.append(x)
+    sum = sum+x
+
+print(lst)
+print(sum)
+
 
 
     
