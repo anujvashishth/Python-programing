@@ -86,17 +86,82 @@
 #     print("number is not palindrome")
 
 # 11.Write a Python program to find the sum of all elements in a list. 
-n = int(input("Enter number of elements: "))
-lst = []
-sum = 0
+# n = int(input("Enter number of elements: "))
+# lst = []
+# sum = 0
 
-for i in range(n):
-    x = int(input("Enter element: "))
-    lst.append(x)
-    sum = sum+x
+# for i in range(n):
+#     x = int(input("Enter element: "))
+#     lst.append(x)
+#     sum = sum+x
 
-print(lst)
-print(sum)
+# print(lst)
+# print(sum) 
+
+ # 12.Write a Python program to find the largest and smallest elements in a list.
+ 
+ # What is the probability the team wins given the player is absent?
+# o Probability of winning with star player: 60%
+# o	Probability of winning without star player: 30%
+# o	Probability of star player being absent: 40%
+
+# A = int(input("Enter the number with star player: "))/100
+# B = int(input("Enter the number with without star player: "))/100
+# C = int(input("Enter the number player being absent: "))/100
+
+# D = (A*B)/C 
+# print(D)
+
+
+# o	Probability of object being a pedestrian: 5%
+# o	Sensor accuracy for pedestrians: 90%
+# o	Probability of false detection: 10%
+# •	Question: What is the probability the detected object is truly a pedestrian?
+# A = int(input("Enter  being a pedestrian: "))/100
+# B = int(input("Enter accuracy for pedestrians: "))/100
+# C = int(input("Enter false detection: "))/100
+
+# D = ((A*B)/C)*100
+# print(D)
+import pandas as pd
+
+# Set the path to the file you'd like to load
+file_path = r"C:\Users\LENOVO LOQ\Desktop\Titanic-Dataset.csv"
+
+# Load the dataset using pandas
+df = pd.read_csv(file_path)
+
+# Display first 5 records
+# print("First 5 records:")
+# print(df.head())
+
+pd.set_option("display.max_rows", None)
+pd.set_option("display.max_columns", None)
+print("All entities in the dataset:")
+print(df)
+
+# Check for missing values in each column
+missing_values = df.isnull().sum()
+missing_percentage = (df.isnull().sum() / len(df)) * 100
+
+# Create a summary DataFrame for missing values
+missing_summary = pd.DataFrame({
+    "Missing Count": missing_values,
+    "Missing Percentage": missing_percentage
+})
+print("\nMissing values summary:")
+print(missing_summary)
+
+# Removing Duplicates value
+
+# Export both the dataset and missing-value summary to Excel
+with pd.ExcelWriter("Titanic_MissingData_Analysis.xlsx") as writer:
+    df.to_excel(writer, sheet_name="Titanic Dataset", index=False)
+    missing_summary.to_excel(writer, sheet_name="Missing Values Summary")
+
+
+
+     
 
 
 
